@@ -3,7 +3,7 @@ vcloud-director-shutdown
 
 Script to shutdown vApps when not in use e.g. evenings/weekends
 
-Assumptions
+Requirements
 -----------
 
 Requires Ruby and the fog Ruby gem.
