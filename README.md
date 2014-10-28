@@ -6,7 +6,9 @@ Script to shutdown vApps when not in use e.g. evenings/weekends
 Assumptions
 -----------
 
-haproxy at /usr/sbin/haproxy (default for yum install haproxy)
+Requires Ruby and the fog Ruby gem.
+
+*gem install fog*
 
 Installation
 -----------
@@ -21,7 +23,9 @@ Configure your vcloud director api credentials
 
 Configure the vApps you wish to power off/on with the script
 
-
+@selected_org = "org1"
+@selected_vdc = "vdc1"
+@selected_vapps_to_shutdown = ['vapp1', 'vapp2', 'vapp3', 'vapp4']
 
 Usage
 -----------
