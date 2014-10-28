@@ -1,4 +1,4 @@
-skyscape-shutdown
+vcloud-director-shutdown
 =================
 
-Script to shutdown vApps/VMs when not in use e.g. evenings/weekends
+Script to shutdown vApps when not in use e.g. evenings/weekends
