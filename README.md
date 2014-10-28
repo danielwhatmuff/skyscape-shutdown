@@ -34,10 +34,10 @@ Installation
 Usage
 -----------
 
-#power off the vApps
+power off the vApps
 
 ruby vcloud-director-shutdown.rb *off*
 
-#power on the vApps
+power on the vApps
 
 ruby vcloud-director-shutdown.rb *on*
