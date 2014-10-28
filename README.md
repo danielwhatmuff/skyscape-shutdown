@@ -13,15 +13,15 @@ Requires Ruby and the fog Ruby gem.
 Installation
 -----------
 
-Copy the script to somewhere sensible, which has access to your vcloud-director environment.
+1. Copy the script to somewhere sensible e.g. /usr/local/bin onto a server or machine which has access to your vcloud director API.
 
-Configure your vcloud director api credentials
+2. Configure your vcloud director api credentials
 
 @vcloud_director_username='abc@abc'
 @vcloud_director_password='password'
 @vcloud_director_host='api.vcd.example.com'
 
-Configure the vApps you wish to power off/on with the script
+3. Configure the vApps you wish to power off/on with the script, and specify the org and vdc they are contained in.
 
 @selected_org = "org1"
 @selected_vdc = "vdc1"
@@ -30,10 +30,10 @@ Configure the vApps you wish to power off/on with the script
 Usage
 -----------
 
-#powering off some vApps
+#power off the vApps
 
 ruby vcloud-director-shutdown.rb *off*
 
-#powering on some vApps
+#power on the vApps
 
 ruby vcloud-director-shutdown.rb *on*
