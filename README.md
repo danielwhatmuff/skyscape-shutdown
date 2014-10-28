@@ -1,7 +1,7 @@
 vcloud-director-shutdown
 =================
 
-Script to shutdown vApps when not in use e.g. evenings/weekends
+Simple Ruby script to shutdown vApps when not in use e.g. evenings/weekends
 
 Requirements
 -----------
