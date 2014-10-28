@@ -18,13 +18,17 @@ Installation
 2. Configure your vcloud director api credentials
 
 @vcloud_director_username='abc@abc'
+
 @vcloud_director_password='password'
+
 @vcloud_director_host='api.vcd.example.com'
 
 3. Configure the vApps you wish to power off/on with the script, and specify the org and vdc they are contained in.
 
 @selected_org = "org1"
+
 @selected_vdc = "vdc1"
+
 @selected_vapps_to_shutdown = ['vapp1', 'vapp2', 'vapp3', 'vapp4']
 
 Usage
