@@ -10,14 +10,14 @@
 require 'fog'
 
 #vcloud director credentials
-@vcloud_director_username='abc@abc'
-@vcloud_director_password='password'
-@vcloud_director_host='api.vcd.example.com'
+vcloud_director_username=''
+vcloud_director_password=''
+vcloud_director_host=''
 
 #what to power off or on?
-@selected_org = "org1" #which org?
-@selected_vdc = "vdc1" #which vdc within the above vdc? 
-@selected_vapps_to_shutdown = ['vapp1', 'vapp2', 'vapp3', 'vapp4'] #which vapps within the above vdc?
+selected_org = ""
+selected_vdc = ""
+selected_vapps_to_shutdown = ['', '', '']
 
 #function to create connection to vcloud director
 def create_connection(username, password, host)
@@ -28,22 +28,22 @@ end
 
 #function to power off or on some vapps passed as an array
 def power_off_on(on_off, org, vdc, vapps)
-  @org = @vcloud.organizations.get_by_name(@org)
-  @vdc = @org.vdcs.get_by_name(@vdc)
+  org = @vcloud.organizations.get_by_name(org)
+  vdc = org.vdcs.get_by_name(vdc)
   if on_off == "on"
-    @selected_vapps_to_shutdown.each { |vapp_sd| vdc.vapps.get_by_name(vapp_sd).power_on }
+    vapps.each { |vapp_sd| vdc.vapps.get_by_name(vapp_sd).power_on }
   elsif on_off == "off"
-    @selected_vapps_to_shutdown.each { |vapp_sd| vdc.vapps.get_by_name(vapp_sd).power_off }
+    vapps.each { |vapp_sd| vdc.vapps.get_by_name(vapp_sd).power_off }
   end
 end
 
 if ARGV[0] == "on"
-  create_connection(@vcloud_director_username, @vcloud_director_password, @vcloud_director_host)
-  power_off_on("on", @selected_org, @selected_vdc, @selected_vapps_to_shutdown)
+  create_connection(vcloud_director_username, vcloud_director_password, vcloud_director_host)
+  power_off_on("on", selected_org, selected_vdc, selected_vapps_to_shutdown)
 elsif ARGV[0] == "off"
-  create_connection(@vcloud_director_username, @vcloud_director_password, @vcloud_director_host)
+  create_connection(vcloud_director_username, vcloud_director_password, vcloud_director_host)
   power_off_on(off)
-  power_off_on("off", @selected_org, @selected_vdc, @selected_vapps_to_shutdown)
+  power_off_on("off", selected_org, selected_vdc, selected_vapps_to_shutdown)
 else
   puts "Usage: ./vcloud-director-shutdown.rb <on|off>"
 end
